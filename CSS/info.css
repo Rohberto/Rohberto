@@ -1,0 +1,66 @@
+.Information-field{
+    margin: 80px 0;
+    width: 600px;
+    padding: 60px;
+    background-color: #fff;
+    border-radius: 30px;
+}
+#main1{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.Information-field h1{
+    text-decoration: none;
+    margin: 30px 0;
+    text-transform: capitalize;
+    color: #155f35;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+}
+.info-form input{
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 10px;
+    background-color: #e4eee9;
+    outline: none;
+    border: none;
+    margin-bottom: 20px;
+}
+.info-form button{
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 10px;
+    color: #d4c7c7;
+    background-color: #e4eee9;
+    outline: none;
+    border: none;
+    margin: 20px 0;
+    cursor: pointer;
+}
+.tel button{
+    width: 10%;
+    padding: 15px 10px;
+    border-radius: 10px;
+    background-color: #e4eee9;
+    outline: none;
+    border: none;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+.tel{
+    display: flex;
+}
+@media all and (max-width: 600px){
+    .Information-field{
+        margin: 80px 0;
+        width: 90%;
+        padding: 40px;
+        background-color: #fff;
+        border-radius: 30px;
+    }
+    .Information-field h1{
+       font-size: 20px;
+    }
+}

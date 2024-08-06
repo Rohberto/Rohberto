@@ -1,0 +1,73 @@
+.otp_form{
+    margin: 80px 0;
+    width: 600px;
+    padding: 60px;
+    background-color: #fff;
+    border-radius: 30px;
+}
+p{
+    font-weight: 400;
+    font-size: 14px;
+    padding: 15px 0;
+}
+.otp-field{
+    width: 100%;
+    display: flex;
+}
+.otp-field input{
+    width: 15%;
+    margin-right: 5px;
+outline: none;
+border-width: 0 0 2px;
+}
+.otp-text{
+    text-align: center;
+    font-size: 12px;
+}
+.hidden{
+    text-decoration: none;
+    margin: 30px 0;
+    text-transform: capitalize;
+    color: #155f35;
+    font-weight: 600;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.otp-buttons{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.back-btn{
+    width: 120px;
+    padding: 20px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: #054e25;
+    font-weight: bold;
+    font-size: 14px;
+}
+.verify-btn{
+    width: 120px;
+    padding: 20px;
+    outline: none;
+    border: none;
+    background-color: #155f35;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 20px;
+    font-size: 14px;
+}
+@media all and (max-width: 600px){
+    .otp_form{
+        margin: 80px 0;
+        width: 90%;
+        padding: 40px;
+        background-color: #fff;
+        border-radius: 30px;
+    }
+}

