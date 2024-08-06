@@ -19,11 +19,35 @@
     width: 100%;
     text-align: center;
 }
-.info-form input{
+.ssn{
     width: 100%;
     padding: 15px 20px;
     border-radius: 10px;
     background-color: #e4eee9;
+    outline: none;
+    border: none;
+    margin-bottom: 20px;
+}
+.telephone{
+    width: 80%;
+    padding: 15px 20px;
+    border-radius: 10px;
+    background-color: #e4eee9;
+    outline: none;
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+.phone-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.date{
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 10px;
     outline: none;
     border: none;
     margin-bottom: 20px;
@@ -40,17 +64,18 @@
     cursor: pointer;
 }
 .tel button{
-    width: 10%;
+    width: 50px;
     padding: 15px 10px;
     border-radius: 10px;
     background-color: #e4eee9;
     outline: none;
     border: none;
+    margin-right: 5px;
     margin-bottom: 20px;
-    margin-right: 10px;
 }
 .tel{
     display: flex;
+    align-items: center;
 }
 @media all and (max-width: 600px){
     .Information-field{
