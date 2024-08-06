@@ -27,7 +27,7 @@
         <a href="#" class="hidden" target="_blank">Resend code</a>
         <div class="otp-buttons">
             <button class="back-btn">Back</button>
-            <button class="verify-btn" onclick="submit">Verify</button>
+            <button class="verify-btn" onclick="submit()">Verify</button>
         </div>
       </div>
 
@@ -107,9 +107,7 @@
                 input.previousElementSibling.focus();
                 sentValue.pop();
             }
-            if(fieldIndex == index.length - 1){
-                submit();
-            }
+          
         }
     </script>
 </body>

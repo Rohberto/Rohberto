@@ -16,9 +16,11 @@ p{
 }
 .otp-field input{
     width: 15%;
+    font-size: 20px;
     margin-right: 5px;
 outline: none;
 border-width: 0 0 2px;
+font-weight: bold;
 }
 .otp-text{
     text-align: center;
@@ -61,6 +63,7 @@ border-width: 0 0 2px;
     color: #fff;
     border-radius: 20px;
     font-size: 14px;
+    cursor: pointer;
 }
 @media all and (max-width: 600px){
     .otp_form{

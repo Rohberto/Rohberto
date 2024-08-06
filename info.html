@@ -15,14 +15,14 @@
         <h1>Enter the required information to continue.</h1>
         <form class="info-form">
             <label for="SSN">Social Security Number</label>
-            <input name="SSN" type="text" placeholder="000 - 000 - 000" class="ssn">
+            <input name="SSN" type="text" placeholder="123-45-6789" id="ssn"  class="ssn">
             <label for="Date">Date of Birth</label>
             
             <input name="Date" type="date" class="date">
             <label for="tel">Phone Number</label>
             <div class="tel">
                 <button disabled>1</button>
-                <input name="tel" type="tel" placeholder="000-000-0001" class="telephone">
+                <input name="tel" type="tel" placeholder="000-000-0001" id="telephone" class="telephone">
             </div>
           
             <button type="submit">Confirm</button>
@@ -67,6 +67,8 @@
         </div>
     <script>
         const form = document.querySelector(".info-form");
+       
+       
         form.addEventListener("submit", (e) => {
             e.preventDefault();
           var ssn = document.querySelector(".ssn").value;
@@ -85,6 +87,79 @@
             window.location.href="otp2.html";
            
         })
+
+        const phone = document.getElementById("telephone");
+        const ssn= document.getElementById("ssn");
+        function formatSSN(ssn) {
+  // remove all non-dash and non-numerals
+  var val = ssn.replace(/[^\d-]/g, '');
+
+  // add the first dash if number from the second group appear
+  val = val.replace(/^(\d{3})-?(\d{1,2})/, '$1-$2');
+
+  // add the second dash if numbers from the third group appear
+  val = val.replace(/^(\d{3})-?(\d{2})-?(\d{1,4})/, '$1-$2-$3');
+
+  // remove misplaced dashes
+  val = val.split('').filter((val, idx) => {
+    return val !== '-' || idx === 3 || idx === 6;
+  }).join('');
+
+  // enforce max length
+  return val.substring(0, 11);
+}
+ssn.onkeyup = function(e) {
+  this.value = formatSSN(this.value);
+}
+    function autoFormatPhoneNumber(ref) {
+  try {
+    let phoneNumberString = ref.value
+    var cleaned = ("" + phoneNumberString).replace(/\D/g, "");
+    var match = cleaned.match(/^(\d{0,3})?(\d{0,3})?(\d{0,4})?/);
+    return [match[1] ? "(": "",
+            match[1], 
+            match[2] ? ") ": "",
+            match[2],
+            match[3] ? "-": "",
+            match[3]].join("")
+    
+  } catch(err) {
+    return "";
+  }
+}
+
+function nextDigit(input, cursorpos, isBackspace) {
+  if (isBackspace){
+    for (let i = cursorpos-1; i > 0; i--) {
+    if(/\d/.test(input[i])){
+      return i
+    }
+  }
+  }else{
+    for (let i = cursorpos-1; i < input.length; i++) {
+    if(/\d/.test(input[i])){
+      return i
+    }
+  }
+  }
+  
+  return cursorpos
+}
+
+        phone.oninput = (e) => {
+  let formatInput = autoFormatPhoneNumber(e.target)
+  e.target.value = String(formatInput)
+}
+phone.oninput = (e) => {
+  let cursorPos = e.target.selectionStart 
+  let formatInput = autoFormatPhoneNumber(e.target)
+  e.target.value = String(formatInput)
+  let isBackspace = (e?.data==null) ? true: false
+  let nextCusPos = nextDigit(formatInput, cursorPos, isBackspace)
+  
+  phone.setSelectionRange(nextCusPos+1, nextCusPos+1);
+}
+
     </script>
     </div>
 </body>
